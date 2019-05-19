@@ -35,8 +35,8 @@ public class DragSpellNoTarget: DraggingActions{
 
         int ID = transform.GetComponent<IDHolder>().uniqueID;
         Player p = TurnManager.Instance.WhoseTurn;
-        ICardLogic cl = null;
-        foreach (ICardLogic c in p.hand.cardsInHand) if (c.ID == ID) cl = c;
+        CardLogic cl = null;
+        foreach (CardLogic c in p.hand.cardsInHand) if (c.ID == ID) cl = c;
         CardActionManager.Instance.HighlightValidTargets(TurnManager.Instance.WhoseTurn, cl);
 
         DebugManager.Instance.DebugMessage("Highlighting entire table.", DebugManager.MessageType.Targeting);

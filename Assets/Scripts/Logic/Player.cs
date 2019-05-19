@@ -161,7 +161,7 @@ public class Player : MonoBehaviour, ICharacter
             if (hand.cardsInHand.Count < PArea.handVisual.slots.Children.Length)
             {
                 // 1) logic: add card to hand
-                ICardLogic newCard = new ICardLogic(deck.cards[0])
+                CardLogic newCard = new CardLogic(deck.cards[0])
                 {
                     owner = this
                 };
@@ -187,7 +187,7 @@ public class Player : MonoBehaviour, ICharacter
         if (hand.cardsInHand.Count < PArea.handVisual.slots.Children.Length)
         {
             // 1) logic: add card to hand
-            ICardLogic newCard = new ICardLogic(cardAsset);
+            CardLogic newCard = new CardLogic(cardAsset);
             newCard.owner = this;
             hand.cardsInHand.Insert(0, newCard);
             // 2) send message to the visual Deck
@@ -202,26 +202,26 @@ public class Player : MonoBehaviour, ICharacter
     public void PlayASpellFromHand(int SpellCardUniqueID, int TargetUniqueID)
     {
         if (TargetUniqueID < 0)
-            PlayASpellFromHand(ICardLogic.CardsCreatedThisGame[SpellCardUniqueID], null);
+            PlayASpellFromHand(CardLogic.CardsCreatedThisGame[SpellCardUniqueID], null);
         else if (TargetUniqueID == ID)
         {
-            PlayASpellFromHand(ICardLogic.CardsCreatedThisGame[SpellCardUniqueID], this);
+            PlayASpellFromHand(CardLogic.CardsCreatedThisGame[SpellCardUniqueID], this);
         }
         else if (TargetUniqueID == OtherPlayer.ID)
         {
-            PlayASpellFromHand(ICardLogic.CardsCreatedThisGame[SpellCardUniqueID], this.OtherPlayer);
+            PlayASpellFromHand(CardLogic.CardsCreatedThisGame[SpellCardUniqueID], this.OtherPlayer);
         }
         else
         {
             // target is a creature
-            PlayASpellFromHand(ICardLogic.CardsCreatedThisGame[SpellCardUniqueID], CreatureLogic.CreaturesCreatedThisGame[TargetUniqueID]);
+            PlayASpellFromHand(CardLogic.CardsCreatedThisGame[SpellCardUniqueID], CreatureLogic.CreaturesCreatedThisGame[TargetUniqueID]);
         }
           
     }
 
     // 2nd overload - takes CardLogic and ICharacter interface - 
     // this method is called from Logic, for example by AI
-    public void PlayASpellFromHand(ICardLogic playedCard, ICharacter target)
+    public void PlayASpellFromHand(CardLogic playedCard, ICharacter target)
     {
         ManaLeft -= playedCard.CurrentManaCost;
         // cause effect instantly:
@@ -240,11 +240,11 @@ public class Player : MonoBehaviour, ICharacter
     // 1st overload - by ID
     public void PlayACreatureFromHand(int UniqueID, int tablePos)
     {
-        PlayACreatureFromHand(ICardLogic.CardsCreatedThisGame[UniqueID], tablePos);
+        PlayACreatureFromHand(CardLogic.CardsCreatedThisGame[UniqueID], tablePos);
     }
 
     // 2nd overload - by logic units
-    public void PlayACreatureFromHand(ICardLogic playedCard, int tablePos)
+    public void PlayACreatureFromHand(CardLogic playedCard, int tablePos)
     {
         // Debug.Log(ManaLeft);
         // Debug.Log(playedCard.CurrentManaCost);

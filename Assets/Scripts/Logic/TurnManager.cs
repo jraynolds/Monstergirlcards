@@ -63,7 +63,7 @@ public class TurnManager : MonoBehaviour {
     {
         DebugManager.Instance.DebugMessage("Game is starting.", DebugManager.MessageType.System);
 
-        ICardLogic.CardsCreatedThisGame.Clear();
+        CardLogic.CardsCreatedThisGame.Clear();
         CreatureLogic.CreaturesCreatedThisGame.Clear();
 
         foreach (Player p in Player.Players)

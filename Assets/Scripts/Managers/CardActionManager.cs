@@ -20,12 +20,12 @@ public class CardActionManager : MonoBehaviour
     }
 
     // CARD TARGETING METHODS
-    public bool CanThisCardTargetThatCard(ICardLogic c1, ICardLogic c2)
+    public bool CanThisCardTargetThatCard(CardLogic c1, CardLogic c2)
     {
         return true;
     }
 
-    public bool CanThisCardTargetThatCard(CreatureLogic c1, ICardLogic c2)
+    public bool CanThisCardTargetThatCard(CreatureLogic c1, CardLogic c2)
     {
         return true;
     }
@@ -35,12 +35,12 @@ public class CardActionManager : MonoBehaviour
         return true;
     }
 
-    public bool CanThisCardTargetThatCard(ICardLogic c1, CreatureLogic c2)
+    public bool CanThisCardTargetThatCard(CardLogic c1, CreatureLogic c2)
     {
         return true;
     }
 
-    public bool CanThisCardTargetThatAvatar(ICardLogic c1, Avatar a)
+    public bool CanThisCardTargetThatAvatar(CardLogic c1, Avatar a)
     {
         return true;
     }
@@ -50,7 +50,7 @@ public class CardActionManager : MonoBehaviour
         return true;
     }
 
-    public bool DoesThisCardHaveAnyValidTargets(ICardLogic c)
+    public bool DoesThisCardHaveAnyValidTargets(CardLogic c)
     {
         return true;
     }
@@ -61,7 +61,7 @@ public class CardActionManager : MonoBehaviour
     }
 
     // OBJECT HIGHLIGHTING METHODS
-    public void HighlightValidTargets(Player player, ICardLogic targeter)
+    public void HighlightValidTargets(Player player, CardLogic targeter)
     {
         DebugManager.Instance.DebugMessage("Highlighting valid targets.", DebugManager.MessageType.Targeting);
 
@@ -80,7 +80,7 @@ public class CardActionManager : MonoBehaviour
         {
             // check for hexproof
             // check for hex bypassing
-            foreach (ICardLogic cl in victim.hand.cardsInHand)
+            foreach (CardLogic cl in victim.hand.cardsInHand)
             {
                 GameObject g = IDHolder.GetGameObjectWithID(cl.ID);
                 if (g != null)
@@ -96,7 +96,7 @@ public class CardActionManager : MonoBehaviour
         {
             // check for hexproof
             // check for hex bypassing
-            foreach (ICardLogic cl in victim.hand.cardsInHand)
+            foreach (CardLogic cl in victim.hand.cardsInHand)
             {
                 GameObject g = IDHolder.GetGameObjectWithID(cl.ID);
                 if (g != null)
@@ -140,7 +140,7 @@ public class CardActionManager : MonoBehaviour
         {
             // check for hexproof
             // check for hex bypassing
-            foreach (ICardLogic cl in player.hand.cardsInHand)
+            foreach (CardLogic cl in player.hand.cardsInHand)
             {
                 GameObject g = IDHolder.GetGameObjectWithID(cl.ID);
                 if (g != null)
@@ -156,7 +156,7 @@ public class CardActionManager : MonoBehaviour
         {
             // check for hexproof
             // check for hex bypassing
-            foreach (ICardLogic cl in player.hand.cardsInHand)
+            foreach (CardLogic cl in player.hand.cardsInHand)
             {
                 GameObject g = IDHolder.GetGameObjectWithID(cl.ID);
                 if (g != null)
@@ -218,7 +218,7 @@ public class CardActionManager : MonoBehaviour
         {
             // check for hexproof
             // check for hex bypassing
-            foreach (ICardLogic cl in victim.hand.cardsInHand)
+            foreach (CardLogic cl in victim.hand.cardsInHand)
             {
                 GameObject g = IDHolder.GetGameObjectWithID(cl.ID);
                 if (g != null)
@@ -234,7 +234,7 @@ public class CardActionManager : MonoBehaviour
         {
             // check for hexproof
             // check for hex bypassing
-            foreach (ICardLogic cl in victim.hand.cardsInHand)
+            foreach (CardLogic cl in victim.hand.cardsInHand)
             {
                 GameObject g = IDHolder.GetGameObjectWithID(cl.ID);
                 if (g != null)
@@ -279,7 +279,7 @@ public class CardActionManager : MonoBehaviour
         {
             // check for hexproof
             // check for hex bypassing
-            foreach (ICardLogic cl in player.hand.cardsInHand)
+            foreach (CardLogic cl in player.hand.cardsInHand)
             {
                 GameObject g = IDHolder.GetGameObjectWithID(cl.ID);
                 if (g != null)
@@ -295,7 +295,7 @@ public class CardActionManager : MonoBehaviour
         {
             // check for hexproof
             // check for hex bypassing
-            foreach (ICardLogic cl in player.hand.cardsInHand)
+            foreach (CardLogic cl in player.hand.cardsInHand)
             {
                 GameObject g = IDHolder.GetGameObjectWithID(cl.ID);
                 if (g != null)
@@ -356,7 +356,7 @@ public class CardActionManager : MonoBehaviour
     {
         DebugManager.Instance.DebugMessage("Highlighting castables for player " + p.name, DebugManager.MessageType.Targeting);
 
-        foreach (ICardLogic cl in p.hand.cardsInHand)
+        foreach (CardLogic cl in p.hand.cardsInHand)
         {
             GameObject g = IDHolder.GetGameObjectWithID(cl.ID);
             if (g != null)

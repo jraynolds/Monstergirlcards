@@ -51,8 +51,8 @@ public class DragSpellOnTarget : DraggingActions {
 
         int ID = transform.parent.GetComponent<IDHolder>().uniqueID;
         Player p = TurnManager.Instance.WhoseTurn;
-        ICardLogic cl = null;
-        foreach (ICardLogic c in p.hand.cardsInHand) if (c.ID == ID) cl = c;
+        CardLogic cl = null;
+        foreach (CardLogic c in p.hand.cardsInHand) if (c.ID == ID) cl = c;
         CardActionManager.Instance.HighlightValidTargets(TurnManager.Instance.WhoseTurn, cl);
     }
 

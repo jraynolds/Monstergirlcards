@@ -3,28 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
+[System.Serializable]
 public class CardLogic : IIdentifiable
 {
-    // reference to a player who owns this card
-    Player owner;
+    // reference to a player who holds this card in his hand
+    public Player owner;
+    // an ID of this card
+    public int UniqueCardID;
     // a reference to the card asset that stores all the info about this card
-    CardAsset ca;
-    // effects on this card to modify its attributes, effects
-    List<CardMod> Modifiers { get; set; }
-    // effects bound to this card naturally
-    List<Effect> Effects { get; set; }
+    public CardAsset ca;
+    // a script of type spell effect that will be attached to this card when it`s created
+    public SpellEffect effect;
+
+
+    // STATIC (for managing IDs)
+    public static Dictionary<int, CardLogic> CardsCreatedThisGame = new Dictionary<int, CardLogic>();
+
 
     // PROPERTIES
-    // an ID of this card
-    private int uniqueCardID;
     public int ID
     {
-        get { return uniqueCardID; }
-        set
-        {
-            Debug.Log("hi!");
-            uniqueCardID = value;
-        }
+        get { return UniqueCardID; }
     }
 
     public int CurrentManaCost { get; set; }
@@ -50,17 +49,17 @@ public class CardLogic : IIdentifiable
         // set the CardAsset reference
         this.ca = ca;
         // get unique int ID
-        uniqueCardID = IDFactory.GetUniqueID();
+        UniqueCardID = IDFactory.GetUniqueID();
         //UniqueCardID = IDFactory.GetUniqueID();
         ResetManaCost();
         // create an instance of SpellEffect with a name from our CardAsset
         // and attach it to 
-        if (ca.SpellScriptName!= null && ca.SpellScriptName!= "")
+        if (ca.SpellScriptName != null && ca.SpellScriptName != "")
         {
-            effect = Activator.CreateInstance(Type.GetType(ca.SpellScriptName)) as SpellEffect;
+            effect = System.Activator.CreateInstance(System.Type.GetType(ca.SpellScriptName)) as SpellEffect;
         }
         // add this card to a dictionary with its ID as a key
-        CardsCreatedThisGame.Add(ID, this);
+        CardsCreatedThisGame.Add(UniqueCardID, this);
     }
 
     // method to set or reset mana cost
@@ -68,4 +67,5 @@ public class CardLogic : IIdentifiable
     {
         CurrentManaCost = ca.ManaCost;
     }
+
 }

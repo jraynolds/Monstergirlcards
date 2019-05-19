@@ -4,11 +4,11 @@ using System.Collections;
 public class DrawACardCommand : Command {
 
     private Player p;
-    private ICardLogic cl;
+    private CardLogic cl;
     private bool fast;
     private bool fromDeck;
 
-    public DrawACardCommand(ICardLogic cl, Player p, bool fast, bool fromDeck)
+    public DrawACardCommand(CardLogic cl, Player p, bool fast, bool fromDeck)
     {        
         this.cl = cl;
         this.p = p;

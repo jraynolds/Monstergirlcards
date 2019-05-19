@@ -127,17 +127,17 @@ public class TriggeredEffectsManager : MonoBehaviour
         }
     }
 
-    public void InvokeEffect(TEffectDictionaries dictEnum, EffectTriggers trigger, Player p1 = null, Player p2 = null, ICardLogic card1 = null, ICardLogic card2 = null)
+    public void InvokeEffect(TEffectDictionaries dictEnum, EffectTriggers trigger, Player p1 = null, Player p2 = null, CardLogic card1 = null, CardLogic card2 = null)
     {
         Dictionary<EffectTriggers, List<Effect>> dict = GetDict(dictEnum);
 
-        foreach (Effect e in dict[trigger]) Effect.InvokeEffect(p1, p2, card1, card2);
+        foreach (Effect e in dict[trigger]) e.InvokeEffect(p1, p2, card1, card2);
     }
 
-    public void InvokeEffect(TEffectDictionaries dictEnum, EffectTriggers trigger, Player p1 = null, Player p2 = null, CreatureLogic card1 = null, ICardLogic card2 = null)
+    public void InvokeEffect(TEffectDictionaries dictEnum, EffectTriggers trigger, Player p1 = null, Player p2 = null, CreatureLogic card1 = null, CardLogic card2 = null)
     {
         Dictionary<EffectTriggers, List<Effect>> dict = GetDict(dictEnum);
 
-        foreach (Effect e in dict[trigger]) Effect.InvokeEffect(p1, p2, card1, card2);
+        foreach (Effect e in dict[trigger]) e.InvokeEffect(p1, p2, card1, card2);
     }
 }
