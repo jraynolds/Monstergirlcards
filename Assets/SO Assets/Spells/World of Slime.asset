@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14728ce16d965864bb86c9ec8408148e, type: 3}
+  m_Name: World of Slime
+  m_EditorClassIdentifier: 
+  characterAsset: {fileID: 11400000, guid: e039e06709da36841a412db06362b989, type: 2}
+  Description: Deal 1 damage to all enemy creatures.
+  CardImage: {fileID: 21300000, guid: b891ed2c16ffdc043a7c2e4c73371e18, type: 3}
+  ManaCost: 0
+  MaxHealth: 0
+  Attack: 0
+  AttacksForOneTurn: 1
+  Charge: 0
+  CreatureScriptName: Deal
+  specialCreatureAmount: 1
+  SpellScriptName: RefreshAttacks
+  specialSpellAmount: 0
+  targets: 08000000

@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - TopCreature
+  - BottomCreature
+  - TopHandCard
+  - BottomHandCard
+  - TopPlayer
+  - BottomPlayer
+  - Full Table
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Behind Table
+    uniqueID: 6768167
+    locked: 0
+  - name: Table
+    uniqueID: 1971041249
+    locked: 0
+  - name: Monsters
+    uniqueID: 2754851885
+    locked: 0
+  - name: Cards
+    uniqueID: 4815755
+    locked: 0
+  - name: Above Everything
+    uniqueID: 2962802821
+    locked: 0
